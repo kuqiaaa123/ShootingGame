@@ -25,4 +25,14 @@ public class Stats{
         this.ms=ms;
     }
     
+    public double getMovementSpeed(){
+        return ms;
+    }
+    public int getHp(){
+        return hp;
+    }
+    public int getWeight(){
+        return weight;
+    }
+    
 }

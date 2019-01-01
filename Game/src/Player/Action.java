@@ -12,4 +12,13 @@ package Player;
 public class Action {
     private Movement movement;
     private Shoot shoot;
+    
+    public Action(){
+        movement=new Movement();
+        shoot=new Shoot();
+    }
+    
+    public Movement getMovement(){
+        return movement;
+    }
 }

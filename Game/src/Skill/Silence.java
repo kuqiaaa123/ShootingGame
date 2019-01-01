@@ -3,18 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Player;
-
-import javafx.scene.image.Image;
+package Skill;
 
 /**
  *
  * @author jiach
  */
-public class Shoot {
-    private Image shoot[];
+public class Silence extends Skill{
     
-    public Image getShootImage(int index){
-        return shoot[index];
-    };
 }

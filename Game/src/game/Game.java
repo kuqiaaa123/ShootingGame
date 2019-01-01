@@ -5,11 +5,17 @@
  */
 package game;
 
+import Map.Map;
+import Map.RectangleMap;
+import Player.Player;
+import java.util.Set;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -21,23 +27,28 @@ public class Game extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
+        /*Player p=new Player();
         
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
+        Pane root = new Pane();
+        root.getChildren().add(p.getAction().getMovement().getMoveImageView());
+        p.getAction().getMovement().getMoveImageView().setX(0);
         
         Scene scene = new Scene(root, 300, 250);
         
-        primaryStage.setTitle("Hello World!");
-        primaryStage.setScene(scene);
+        scene.setOnKeyPressed((e) -> {
+            if(e.getCode() == KeyCode.DOWN)
+                p.move(root, 0, 1);
+            else if(e.getCode() == KeyCode.LEFT)
+                 p.move(root, 0, 2);
+            else if(e.getCode() == KeyCode.RIGHT)
+                 p.move(root, 0, 3);
+            else if(e.getCode() == KeyCode.UP)
+                 p.move(root, 0, 4);
+        });*/
+        Map map=new RectangleMap(1);
+        
+        primaryStage.setTitle(map.getMapName());
+        primaryStage.setScene(map.getScene());
         primaryStage.show();
     }
 

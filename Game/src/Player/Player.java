@@ -5,9 +5,12 @@
  */
 package Player;
 
-import game.Skill.Skill;
+import Skill.Skill;
+import java.util.HashSet;
+import java.util.Set;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 
 /**
  *
@@ -22,6 +25,7 @@ public class Player {
     private Image icon;
     private ImageView iconView;
     private Skill skill[];
+    private Point position;
     
     public Player(){
         stats=new Stats();
@@ -31,5 +35,25 @@ public class Player {
         //icon=new Image
         //iconView=new ImageView
         skill=new Skill[SKILL_NUM];
+        position=new Point();
+    }
+    
+    public void move(Pane root,int index,int direction){
+       if(direction==1)
+           position.setY(position.getY()+stats.getMovementSpeed());
+       else if(direction==2)
+           position.setX(position.getX()-stats.getMovementSpeed());
+       else if(direction==3)
+           position.setX(position.getX()+stats.getMovementSpeed());
+       else if(direction==4)
+           position.setY(position.getY()-stats.getMovementSpeed());
+       root.getChildren().set(index, action.getMovement().moveImageView(direction,position));
+    }
+    
+    public Action getAction(){
+        return action;
+    }
+    public Point getPoistion(){
+        return position;
     }
 }
